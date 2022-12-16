@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reservas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  </head>
+  <body>
+    
+
+    <div class="container m-5">
+        <!-- bienvenida con un alert -->
+
+        <div class="alert alert-success text-center" role="alert">
+            <h1>Listado de reservas</h1> 
+        </div>
+
+        <!-- Ver reservas, si hay -->
+        {% if reservas %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Observacion</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reservas in reservas %}
+                <tr>
+                    <th scope="row">{{reservas.id}}</th>
+                    <td>{{reservas.nombre}}</td>
+                    <td>{{reservas.telefono}}</td>
+                    <td>{{reservas.fecha}}</td>
+                    <td>{{reservas.hora}}</td>
+                    <td>{{reservas.cantidad}}</td>
+                    <td>{{reservas.estado}}</td>
+                    <td>{{reservas.observacion}}</td>
+                    <td>{{reservas.acciones}}</td>
+                    <td>
+                        <a href="/reservas/editar/{{reservas.id}}" class="btn btn-warning">Editar</a>
+                        <a href="/reservas/delete/{{reservas.id}}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="alert alert-danger text-center" role="alert">
+            <h1>No hay reservas</h1>
+        </div>
+        {% endif %}
+
+        <!-- Boton agregar -->
+        <a href="/reservas/add" class="btn btn-success">Agregar reservas</a>
+        <!-- Volver -->
+        <a href="/" class="btn btn-primary float-end">Volver</a>
+
+    
+    
+        
+        
+    </div>
+
+    <script src="https://cc:\Users\crist\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\code\electron-sandbox\workbench\workbench.htmldn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </body>
+</html>
